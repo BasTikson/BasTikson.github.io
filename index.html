@@ -106,11 +106,6 @@
     <!-- Telegram-->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-    document.getElementById('cancelButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Отменяем стандартное действие кнопки
-    document.getElementById('myForm').reset(); // Очищаем форму
-    });
-
 
 
     <script>
@@ -129,7 +124,7 @@
 
         order.addEventListener('click', function(event) {
                     event.preventDefault(); // Отменяем стандартное действие кнопки
-                    let name = document.getElementByid("user_name").value;
+                    let name = document.getElementById("user_name").value;
                     let email = document.getElementById("user_email").value;
                     let phone = document.getElementById("user_phone").value;
 
