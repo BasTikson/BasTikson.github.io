@@ -140,7 +140,7 @@
               return;
             }
 
-		    tg.close();
+
 
 		    let data = {
 		        name: name,
@@ -148,6 +148,8 @@
 		        phone: phone
 		    }
 		    tg.sendData(JSON.stringify(data));
+
+		    tg.close();
 
         });
     </script>
