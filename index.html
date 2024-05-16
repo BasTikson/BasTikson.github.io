@@ -4,102 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Shop</title>
-
-    <style>
-        @import url(' https://fonts.googleapis.com/css2?family=Montserrat ;wght@200;500&displav=swag');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 200;
-            color: var(--tg-theme-text-color);
-            background: var(--tg-theme-bg-color);
-        }
-
-        #main {
-            width: 100%;
-            padding: 20px;
-            text-align: center;
-        }
-
-        h1 {
-            margin-top: 50px;
-            margin-bottom: 10px;
-        }
-
-        img {
-            width: 70px;
-            margin: 30px auto;
-        }
-
-        p {
-            width: 350px;
-            margin: 0 auto;
-        }
-
-        button {
-            border: 0;
-            border-radius: 5px;
-            margin-top: 50px;
-            height: 60px;
-            width: 200px;
-            font-size: 20px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 500ms ease;
-            color: var(--tg-theme-button-color);
-            background: var(--tg-theme-button-text-color);
-        }
-
-        button: hover {
-            background: var(--tg-theme-secondary-bg-color);
-        }
-
-        #form {
-            display: none;
-            text-align: center;
-        }
-
-        input {
-            width: 90%;
-            outline: none;
-            margin: 10px 5%;
-            padding: 15px 10px;
-            font-size: 14px;
-            border: 2px solid silver;
-            border-radius: 5px;
-        }
-
-        input:focus {
-            border-color: #db5d5d;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
 <body>
     <div class="container">
-        <div id="main">
-            <h1>0нлайн магазин</h1>
-            <img src=" https://cdn-icons-png.flaticon.com/512/3595/3595455.png ">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ipsum magni, molestias.</p>
-            <button id="buy">Купить</button>
-        </div>
-        <form id="form">
-            <input type="text" placeholder="Имя" id="user_name">
-            <input type="text" placeholder="Email" id="user_email">
-            <input type="text" placeholder="Телефон" id="user_phone">
-            <div id="error">
-
-
+        <div class="calendar">
+            <div class="calendar__picture">
+                <h2>18, Sunday</h2>
+                <h3>November</h3>
             </div>
-            <button id="order">Оформить</button>
-        </form>
+            <div class="calendar__date">
+                <div class="calendar__day">П</div>
+                <div class="calendar__day">В</div>
+                <div class="calendar__day">С</div>
+                <div class="calendar__day">Ч</div>
+                <div class="calendar__day">П</div>
+                <div class="calendar__day">С</div>
+                <div class="calendar__day">В</div>
+                <div class="calendar__number"></div>
+                <div class="calendar__number"></div>
+                <div class="calendar__number"></div>
+                <div class="calendar__number">1</div>
+                <div class="calendar__number">2</div>
+                <div class="calendar__number">3</div>
+                <div class="calendar__number">4</div>
+                <div class="calendar__number">5</div>
+                <div class="calendar__number">6</div>
+                <div class="calendar__number">7</div>
+                <div class="calendar__number">8</div>
+                <div class="calendar__number">9</div>
+                <div class="calendar__number">10</div>
+                <div class="calendar__number">11</div>
+                <div class="calendar__number">12</div>
+                <div class="calendar__number">13</div>
+                <div class="calendar__number">14</div>
+                <div class="calendar__number">15</div>
+                <div class="calendar__number">16</div>
+                <div class="calendar__number">17</div>
+                <div class="calendar__number calendar__number--current">18</div>
+                <div class="calendar__number">19</div>
+                <div class="calendar__number">20</div>
+                <div class="calendar__number">21</div>
+                <div class="calendar__number">22</div>
+                <div class="calendar__number">23</div>
+                <div class="calendar__number">24</div>
+                <div class="calendar__number">25</div>
+                <div class="calendar__number">26</div>
+                <div class="calendar__number">27</div>
+                <div class="calendar__number">28</div>
+                <div class="calendar__number">29</div>
+                <div class="calendar__number">30</div>
+            </div>
+        </div>
+
+
+        <!--        <div id="main">-->
+        <!--            <h1>0нлайн магазин</h1>-->
+        <!--            <img src=" https://cdn-icons-png.flaticon.com/512/3595/3595455.png ">-->
+        <!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ipsum magni, molestias.</p>-->
+        <!--            <button id="buy">Купить</button>-->
+        <!--        </div>-->
+        <!--        -->
+        <!--        -->
+        <!--        <form id="form">-->
+        <!--            <input type="text" placeholder="Имя" id="user_name">-->
+        <!--            <input type="text" placeholder="Email" id="user_email">-->
+        <!--            <input type="text" placeholder="Телефон" id="user_phone">-->
+        <!--            <div id="error">-->
+        <!--            </div>-->
+        <!--            <button id="order">Оформить</button>-->
+        <!--        </form>-->
 
     </div>
 
@@ -123,25 +99,21 @@
         })
 
         order.addEventListener('click', function(event) {
-                    event.preventDefault(); // Отменяем стандартное действие кнопки
-                    let name = document.getElementById("user_name").value;
-                    let email = document.getElementById("user_email").value;
-                    let phone = document.getElementById("user_phone").value;
+            event.preventDefault(); // Отменяем стандартное действие кнопки
+            let name = document.getElementById("user_name").value;
+            let email = document.getElementById("user_email").value;
+            let phone = document.getElementById("user_phone").value;
 
-                    let data = {
-                        name: name,
-                        email: email,
-                        phone: phone
-                    }
-                    console.log("data: ", data)
-                    tg.sendData(JSON.stringify(data));
-                    tg.close();
+            let data = {
+                name: name,
+                email: email,
+                phone: phone
+            }
+            console.log("data: ", data)
+            tg.sendData(JSON.stringify(data));
+            tg.close();
 
-                });
+        });
     </script>
-
-
-
 </body>
-
 </html>
