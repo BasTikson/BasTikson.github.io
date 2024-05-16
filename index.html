@@ -9,58 +9,61 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="calendar">
-            <div class="header">
-                <div class="month">July 2021</div>
-                <div class="btns">
-                    <!-- today -->
-                    <div class="btn today">
-                        <i class="fas fa-calendar-day"></i>
-                    </div>
-                    <!-- previous month -->
-                    <div class="btn prev">
-                        <i class="fas fa-chevron-left"></i>
-                    </div>
-                    <!-- next month -->
-                    <div class="btn next">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </div>
+            <div class="container">
+      <div class="calendar">
+        <div class="header">
+          <div class="month">July 2021</div>
+          <div class="btns">
+            <!-- today -->
+            <div class="btn today">
+<!--              <i class="fas fa-calendar-day"></i>-->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>
             </div>
-            <div class="weekdays">
-                <div class="day">Пн</div>
-                <div class="day">Вт</div>
-                <div class="day">Ср</div>
-                <div class="day">Чт</div>
-                <div class="day">Пт</div>
-                <div class="day">Сб</div>
-                <div class="day">Вс</div>
+            <!-- previous month -->
+            <div class="btn prev">
+<!--              <i class="fas fa-chevron-left"></i>-->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
             </div>
-            <div class="days">
-                <!-- render days with js -->
+            <!-- next month -->
+            <div class="btn next">
+<!--              <i class="fas fa-chevron-right"></i>-->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
             </div>
+          </div>
         </div>
+        <div class="weekdays">
+          <div class="day">Пн</div>
+          <div class="day">Вт</div>
+          <div class="day">Ср</div>
+          <div class="day">Чт</div>
+          <div class="day">Пт</div>
+          <div class="day">Сб</div>
+          <div class="day">Вс</div>
+        </div>
+        <div class="days">
+          <!-- render days with js -->
+        </div>
+      </div>
     </div>
 
 
 
-    <!--        <div id="main">-->
-    <!--            <h1>0нлайн магазин</h1>-->
-    <!--            <img src=" https://cdn-icons-png.flaticon.com/512/3595/3595455.png ">-->
-    <!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ipsum magni, molestias.</p>-->
-    <!--            <button id="buy">Купить</button>-->
-    <!--        </div>-->
-    <!--        -->
-    <!--        -->
-    <!--        <form id="form">-->
-    <!--            <input type="text" placeholder="Имя" id="user_name">-->
-    <!--            <input type="text" placeholder="Email" id="user_email">-->
-    <!--            <input type="text" placeholder="Телефон" id="user_phone">-->
-    <!--            <div id="error">-->
-    <!--            </div>-->
-    <!--            <button id="order">Оформить</button>-->
-    <!--        </form>-->
+        <!--        <div id="main">-->
+        <!--            <h1>0нлайн магазин</h1>-->
+        <!--            <img src=" https://cdn-icons-png.flaticon.com/512/3595/3595455.png ">-->
+        <!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ipsum magni, molestias.</p>-->
+        <!--            <button id="buy">Купить</button>-->
+        <!--        </div>-->
+        <!--        -->
+        <!--        -->
+        <!--        <form id="form">-->
+        <!--            <input type="text" placeholder="Имя" id="user_name">-->
+        <!--            <input type="text" placeholder="Email" id="user_email">-->
+        <!--            <input type="text" placeholder="Телефон" id="user_phone">-->
+        <!--            <div id="error">-->
+        <!--            </div>-->
+        <!--            <button id="order">Оформить</button>-->
+        <!--        </form>-->
 
     </div>
 
@@ -102,5 +105,4 @@
         });
     </script>
 </body>
-
 </html>
