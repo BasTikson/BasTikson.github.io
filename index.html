@@ -74,6 +74,16 @@
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
     <script type="module" src="script.js"></script>
+    <script>
+window.onload = function() {
+    var divElement = document.querySelector('.day');
+
+    divElement.addEventListener('click', function() {
+        var divText = this.textContent;
+        console.log("1", divText);
+    });
+};
+</script>
 
 
 
