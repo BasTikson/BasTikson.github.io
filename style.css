@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 :root {
-  --primary-color: var(--tg-theme-button-color);
-  --text-color: var(--tg-theme-text-color);
-  --bg-color: var(--tg-theme-secondary-bg-color);
+  --primary-color: #5288c1;
+  --text-color: #f5f5e9;
+  --bg-color: #232e3c;
 }
 * {
   margin: 0;
@@ -11,7 +11,8 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  background: var(--tg-theme-secondary-bg-color);
+  /* background: var(--tg-theme-secondary-bg-color); */
+  background:#232e3c;
 }
 .container {
   width: 100%;
@@ -23,7 +24,7 @@ body {
 .calendar {
   width: 100%;
   max-width: 600px;
-  background: var(--tg-theme-bg-color);
+  background: #17212b;
   padding: 30px 20px;
   border-radius: 10px;
 }
@@ -40,7 +41,9 @@ body {
   align-items: center;
   font-size: 25px;
   font-weight: 600;
-  color: var(--tg-theme-button-color);
+  /* color: var(--tg-theme-button-color); */
+  color: #eeebee;
+
 }
 .calendar .header .btns {
   display: flex;
@@ -49,18 +52,21 @@ body {
 .calendar .header .btns .btn {
   width: 50px;
   height: 40px;
-  background: var(--tg-theme-button-color);
+  /* background: var(--tg-theme-button-color); */
+  background: #5288c1;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  color: var(--tg-theme-secondary-bg-color);
+  /* color: var(--tg-theme-secondary-bg-color);*/
+  color: #232e3c;
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s;
 }
 .calendar .header .btns .btn:hover {
-  background: var(--tg-theme-button-color);
+  /* background: var(--tg-theme-button-color); */
+  background: #5288c1;
   transform: scale(1.05);
 }
 .calendar .weekdays {
@@ -73,16 +79,19 @@ body {
   text-align: center;
   font-size: 16px;
   font-weight: 600;
+  /* color: var(--tg-theme-button-color); */
+  color: #eeebee;
 }
 .calendar .days {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+
 }
 .calendar .days .day {
   width: calc(100% / 7 - 10px);
   height: 50px;
-  background: var(--tg-theme-bg-color);
+  background: #232e3c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,13 +103,14 @@ body {
   user-select: none;
 }
 .calendar .days .day:not(.next):not(.prev):hover {
-  color: var(--tg-theme-hint-color;
+  color: var(--tg-theme-button-text-color);
   background: var(--primary-color);
   transform: scale(1.05);
 }
 .calendar .days .day.next,
 .calendar .days .day.prev {
-  color: var(--tg-theme-button-color);
+  /* color: var(--tg-theme-button-color); */
+  color: #979797;
 }
 .calendar .days .day.today {
   color: var(--tg-theme-button-text-color);
