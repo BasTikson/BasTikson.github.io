@@ -1,149 +1,101 @@
-const datepicker = document.querySelector(".datepicker");
-const dateInput = document.querySelector(".date-input");
-const yearInput = datepicker.querySelector(".year-input");
-const monthInput = datepicker.querySelector(".month-input");
-const cancelBtn = datepicker.querySelector(".cancel");
-const applyBtn = datepicker.querySelector(".apply");
-const nextBtn = datepicker.querySelector(".next");
-const prevBtn = datepicker.querySelector(".prev");
-const dates = datepicker.querySelector(".dates");
+const daysContainer = document.querySelector(".days");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+const todayBtn = document.querySelector(".today");
+const month = document.querySelector(".month");
 
-let selectedDate = new Date();
-let year = selectedDate.getFullYear();
-let month = selectedDate.getMonth();
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
-// show datepicker
-dateInput.addEventListener("click", () => {
-  datepicker.hidden = false;
-});
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-// hide datepicker
-cancelBtn.addEventListener("click", () => {
-  datepicker.hidden = true;
-});
+const date = new Date();
+let currentMonth = date.getMonth();
+let currentYear = date.getFullYear();
 
-// handle apply button click event
-applyBtn.addEventListener("click", () => {
-  // set the selected date to date input
-  dateInput.value = selectedDate.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
+const renderCalendar = () => {
+  date.setDate(1);
+  const firstDay = new Date(currentYear, currentMonth, 1);
+  const lastDay = new Date(currentYear, currentMonth + 1, 0);
+  const lastDayIndex = lastDay.getDay();
+  const lastDayDate = lastDay.getDate();
+  const prevLastDay = new Date(currentYear, currentMonth, 0);
+  const prevLastDayDate = prevLastDay.getDate();
+  const nextDays = 7 - lastDayIndex - 1;
 
-  // hide datepicker
-  datepicker.hidden = true;
-});
+  month.innerHTML = `${months[currentMonth]} ${currentYear}`;
 
-// handle next month nav
+  let days = "";
+
+  for (let x = firstDay.getDay(); x > 0; x--) {
+    days += `<div class="day prev">${prevLastDayDate - x + 1}</div>`;
+  }
+
+  for (let i = 1; i <= lastDayDate; i++) {
+    if (
+      i === new Date().getDate() &&
+      currentMonth === new Date().getMonth() &&
+      currentYear === new Date().getFullYear()
+    ) {
+      days += `<div class="day today">${i}</div>`;
+    } else {
+      days += `<div class="day">${i}</div>`;
+    }
+  }
+
+  for (let j = 1; j <= nextDays; j++) {
+    days += `<div class="day next">${j}</div>`;
+  }
+
+  daysContainer.innerHTML = days;
+  hideTodayBtn();
+};
+
 nextBtn.addEventListener("click", () => {
-  if (month === 11) year++;
-  month = (month + 1) % 12;
-  displayDates();
+  currentMonth++;
+  if (currentMonth > 11) {
+    currentMonth = 0;
+    currentYear++;
+  }
+  renderCalendar();
 });
 
-// handle prev month nav
 prevBtn.addEventListener("click", () => {
-  if (month === 0) year--;
-  month = (month - 1 + 12) % 12;
-  displayDates();
+  currentMonth--;
+  if (currentMonth < 0) {
+    currentMonth = 11;
+    currentYear--;
+  }
+  renderCalendar();
 });
 
-// handle month input change event
-monthInput.addEventListener("change", () => {
-  month = monthInput.selectedIndex;
-  displayDates();
+todayBtn.addEventListener("click", () => {
+  currentMonth = date.getMonth();
+  currentYear = date.getFullYear();
+  renderCalendar();
 });
 
-// handle year input change event
-yearInput.addEventListener("change", () => {
-  year = yearInput.value;
-  displayDates();
-});
-
-const updateYearMonth = () => {
-  monthInput.selectedIndex = month;
-  yearInput.value = year;
-};
-
-const handleDateClick = (e) => {
-  const button = e.target;
-
-  // remove the 'selected' class from other buttons
-  const selected = dates.querySelector(".selected");
-  selected && selected.classList.remove("selected");
-
-  // add the 'selected' class to current button
-  button.classList.add("selected");
-
-  // set the selected date
-  selectedDate = new Date(year, month, parseInt(button.textContent));
-};
-
-// render the dates in the calendar interface
-const displayDates = () => {
-  // update year & month whenever the dates are updated
-  updateYearMonth();
-
-  // clear the dates
-  dates.innerHTML = "";
-
-  //* display the last week of previous month
-
-  // get the last date of previous month
-  const lastOfPrevMonth = new Date(year, month, 0);
-
-  for (let i = 0; i <= lastOfPrevMonth.getDay(); i++) {
-    const text = lastOfPrevMonth.getDate() - lastOfPrevMonth.getDay() + i;
-    const button = createButton(text, true, -1);
-    dates.appendChild(button);
+function hideTodayBtn() {
+  if (
+    currentMonth === new Date().getMonth() &&
+    currentYear === new Date().getFullYear()
+  ) {
+    todayBtn.style.display = "none";
+  } else {
+    todayBtn.style.display = "flex";
   }
+}
 
-  //* display the current month
-
-  // get the last date of the month
-  const lastOfMOnth = new Date(year, month + 1, 0);
-
-  for (let i = 1; i <= lastOfMOnth.getDate(); i++) {
-    const button = createButton(i, false);
-    button.addEventListener("click", handleDateClick);
-    dates.appendChild(button);
-  }
-
-  //* display the first week of next month
-
-  const firstOfNextMonth = new Date(year, month + 1, 1);
-
-  for (let i = firstOfNextMonth.getDay(); i < 7; i++) {
-    const text = firstOfNextMonth.getDate() - firstOfNextMonth.getDay() + i;
-
-    const button = createButton(text, true, 1);
-    dates.appendChild(button);
-  }
-};
-
-const createButton = (text, isDisabled = false, type = 0) => {
-  const currentDate = new Date();
-
-  // determine the date to compare based on the button type
-  let comparisonDate = new Date(year, month + type, text);
-
-  // check if the current button is the date today
-  const isToday =
-    currentDate.getDate() === text &&
-    currentDate.getFullYear() === year &&
-    currentDate.getMonth() === month;
-
-  // check if the current button is selected
-  const selected = selectedDate.getTime() === comparisonDate.getTime();
-
-  const button = document.createElement("button");
-  button.textContent = text;
-  button.disabled = isDisabled;
-  button.classList.toggle("today", isToday);
-  button.classList.toggle("selected", selected);
-  return button;
-};
-
-displayDates();
-
+renderCalendar();
