@@ -10,60 +10,42 @@
 
 <body>
     <div class="container">
-        <div class="datepicker-container">
-      <input type="text" class="date-input" placeholder="Select date" />
-
-      <div class="datepicker" hidden>
-        <!-- .datepicker-header -->
-        <div class="datepicker-header">
-          <button class="prev">Prev</button>
-
-          <div>
-            <select class="month-input">
-              <option> Январь </option>
-              <option> Февраль </option>
-              <option> Март </option>
-              <option> Апрель </option>
-              <option> Май </option>
-              <option> Июнь  </option>
-              <option> Июль </option>
-              <option> Август </option>
-              <option> Сентябрь </option>
-              <option> Октябрь </option>
-              <option> Ноябрь </option>
-              <option> Декабрь </option>
-            </select>
-            <input type="number" class="year-input" />
+            <div class="container">
+      <div class="calendar">
+        <div class="header">
+          <div class="month">July 2021</div>
+          <div class="btns">
+            <!-- today -->
+            <div class="btn today">
+              <i class="fas fa-calendar-day"></i>
+            </div>
+            <!-- previous month -->
+            <div class="btn prev">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+            <!-- next month -->
+            <div class="btn next">
+              <i class="fas fa-chevron-right"></i>
+            </div>
           </div>
-
-          <button class="next">Next</button>
         </div>
-        <!-- /.datepicker-header -->
-
-        <!-- .days -->
+        <div class="weekdays">
+          <div class="day">Пн</div>
+          <div class="day">Вт</div>
+          <div class="day">Ср</div>
+          <div class="day">Чт</div>
+          <div class="day">Пт</div>
+          <div class="day">Сб</div>
+          <div class="day">Вс</div>
+        </div>
         <div class="days">
-          <span> Пн </span>
-          <span> Вт </span>
-          <span> Ср </span>
-          <span> Чт </span>
-          <span> Пт </span>
-          <span> Сб </span>
-          <span> Вс </span>
+          <!-- render days with js -->
         </div>
-        <!-- /.days -->
-
-        <!-- .dates -->
-        <div class="dates"></div>
-        <!-- /.dates -->
-
-        <!-- .datepicker-footer -->
-        <div class="datepicker-footer">
-          <button class="cancel">Cancel</button>
-          <button class="apply">Apply</button>
-        </div>
-        <!-- /.datepicker-footer -->
       </div>
     </div>
+
+
+
     </div>
 
 
