@@ -13,6 +13,7 @@
 body {
   /* background: var(--tg-theme-secondary-bg-color); */
   background:#232e3c;
+
 }
 .container {
   width: 100%;
@@ -27,6 +28,7 @@ body {
   background: #17212b;
   padding: 30px 20px;
   border-radius: 10px;
+
 }
 .calendar .header {
   display: flex;
@@ -127,3 +129,35 @@ body {
 .credits span {
   color: var(--primary-color);
 }
+
+
+.check-group {
+  background: #fff;
+  max-width: 13rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgb(0 0 10 / 0.2);
+
+  counter-reset: total;
+  counter-reset: checked;
+
+  > * + * {
+    margin-top: 0.75rem;
+  }
+
+  .checkbox { counter-increment: total; }
+
+  input[type="checkbox"]:checked { counter-increment: checked; }
+
+  &__result {
+    font-weight: bold;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgb(0 0 0 / 0.2);
+
+    &:after {
+      content: counter(checked) " / " counter(total);
+      padding-left: 1ch;
+    }
+  }
+}
+
